@@ -1,0 +1,17 @@
+{
+  "name": "dynamoat-conformance",
+  "private": true,
+  "type": "module",
+  "description": "Conformance suite for dynamoat: TypeScript tests on the AWS SDK v3 that run against dynamoat and can be recorded against real DynamoDB.",
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.ts"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "3.1163.0",
+    "@aws-sdk/client-dynamodb-streams": "3.1163.0",
+    "@aws-sdk/lib-dynamodb": "3.1163.0"
+  }
+}

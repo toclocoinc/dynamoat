@@ -1,0 +1,126 @@
+[
+  {
+    "result": {
+      "TableDescription": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "id",
+            "AttributeType": "S"
+          }
+        ],
+        "TableName": "tags",
+        "KeySchema": [
+          {
+            "AttributeName": "id",
+            "KeyType": "HASH"
+          }
+        ],
+        "TableStatus": "CREATING",
+        "CreationDateTime": {},
+        "ProvisionedThroughput": {
+          "NumberOfDecreasesToday": 0,
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0
+        },
+        "TableSizeBytes": 0,
+        "ItemCount": 0,
+        "TableArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/tags",
+        "TableId": "«normalised»",
+        "BillingModeSummary": {
+          "BillingMode": "PAY_PER_REQUEST"
+        },
+        "DeletionProtectionEnabled": false
+      },
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "Table": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "id",
+            "AttributeType": "S"
+          }
+        ],
+        "TableName": "tags",
+        "KeySchema": [
+          {
+            "AttributeName": "id",
+            "KeyType": "HASH"
+          }
+        ],
+        "TableStatus": "ACTIVE",
+        "CreationDateTime": {},
+        "ProvisionedThroughput": {
+          "NumberOfDecreasesToday": 0,
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0
+        },
+        "TableSizeBytes": 0,
+        "ItemCount": 0,
+        "TableArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/tags",
+        "TableId": "«normalised»",
+        "BillingModeSummary": {
+          "BillingMode": "PAY_PER_REQUEST",
+          "LastUpdateToPayPerRequestDateTime": {}
+        },
+        "DeletionProtectionEnabled": false,
+        "WarmThroughput": {
+          "ReadUnitsPerSecond": 12000,
+          "WriteUnitsPerSecond": 4000,
+          "Status": "ACTIVE"
+        }
+      },
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "Tags": [
+        {
+          "Key": "env",
+          "Value": "prod"
+        },
+        {
+          "Key": "owner",
+          "Value": "platform"
+        }
+      ],
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "Tags": [
+        {
+          "Key": "owner",
+          "Value": "platform"
+        }
+      ],
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  }
+]

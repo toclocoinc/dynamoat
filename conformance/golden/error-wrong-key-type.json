@@ -1,0 +1,48 @@
+[
+  {
+    "result": {
+      "TableDescription": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "id",
+            "AttributeType": "S"
+          }
+        ],
+        "TableName": "wrongkey",
+        "KeySchema": [
+          {
+            "AttributeName": "id",
+            "KeyType": "HASH"
+          }
+        ],
+        "TableStatus": "CREATING",
+        "CreationDateTime": {},
+        "ProvisionedThroughput": {
+          "NumberOfDecreasesToday": 0,
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0
+        },
+        "TableSizeBytes": 0,
+        "ItemCount": 0,
+        "TableArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/wrongkey",
+        "TableId": "«normalised»",
+        "BillingModeSummary": {
+          "BillingMode": "PAY_PER_REQUEST"
+        },
+        "DeletionProtectionEnabled": false
+      },
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "error": {
+      "name": "ValidationException",
+      "message": "The provided key element does not match the schema",
+      "$metadata": {
+        "httpStatusCode": 400
+      }
+    }
+  }
+]

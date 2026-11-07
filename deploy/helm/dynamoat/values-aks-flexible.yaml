@@ -1,0 +1,24 @@
+# Azure Database for PostgreSQL Flexible Server + Workload Identity profile.
+#
+# Fill in before installing:
+#   - serviceAccount.annotations["azure.workload.identity/client-id"]: the
+#     client ID of the managed identity the pod uses.
+#   - postgres.existingSecret: a Secret you create holding the connection
+#     string, with sslmode=require and no password (the server fetches a
+#     short-lived Entra access token as the password).
+
+serviceAccount:
+  create: true
+  annotations:
+    # TODO: replace with the managed identity's client ID.
+    azure.workload.identity/client-id: ""
+
+podLabels:
+  azure.workload.identity/use: "true"
+
+postgres:
+  auth: azure-workload-identity
+  # TODO: create this Secret with the key below, e.g.
+  #   postgres://ENTRA_USER@SERVER.postgres.database.azure.com:5432/DATABASE?sslmode=require
+  existingSecret: "dynamoat-postgres"
+  secretKey: "connection-string"

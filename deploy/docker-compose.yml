@@ -1,0 +1,46 @@
+# dynamoat with a Postgres 17 database, for local development.
+#
+#   docker compose -f deploy/docker-compose.yml up -d
+#   docker compose -f deploy/docker-compose.yml down -v
+
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: dynamoat
+      POSTGRES_PASSWORD: dynamoat
+      POSTGRES_DB: dynamoat
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dynamoat -d dynamoat"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  dynamoat:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    ports:
+      # Bound to loopback only so local development does not publish dynamoat
+      # on every interface. To expose it deliberately, e.g. on the LAN, change
+      # this to "8000:8000" (or "192.168.1.10:8000:8000" for one address).
+      - "127.0.0.1:8000:8000"
+    environment:
+      DYNAMOAT_STORE: postgres
+      DYNAMOAT_PG: postgres://dynamoat:dynamoat@postgres:5432/dynamoat?sslmode=disable
+      # Local development: accept every request. To require AWS SigV4 instead,
+      # set DYNAMOAT_AUTH: sigv4, point DYNAMOAT_KEYS at a mounted key file and
+      # add the volume below, for example:
+      #   DYNAMOAT_AUTH: sigv4
+      #   DYNAMOAT_KEYS: /keys/access.key
+      #   volumes:
+      #     - ./keys:/keys:ro
+      DYNAMOAT_AUTH: none
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  pgdata:

@@ -1,0 +1,98 @@
+[
+  {
+    "result": {
+      "TableDescription": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "id",
+            "AttributeType": "S"
+          }
+        ],
+        "TableName": "list-alpha",
+        "KeySchema": [
+          {
+            "AttributeName": "id",
+            "KeyType": "HASH"
+          }
+        ],
+        "TableStatus": "CREATING",
+        "CreationDateTime": {},
+        "ProvisionedThroughput": {
+          "NumberOfDecreasesToday": 0,
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0
+        },
+        "TableSizeBytes": 0,
+        "ItemCount": 0,
+        "TableArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/list-alpha",
+        "TableId": "«normalised»",
+        "BillingModeSummary": {
+          "BillingMode": "PAY_PER_REQUEST"
+        },
+        "DeletionProtectionEnabled": false
+      },
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "TableDescription": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "id",
+            "AttributeType": "S"
+          }
+        ],
+        "TableName": "list-beta",
+        "KeySchema": [
+          {
+            "AttributeName": "id",
+            "KeyType": "HASH"
+          }
+        ],
+        "TableStatus": "CREATING",
+        "CreationDateTime": {},
+        "ProvisionedThroughput": {
+          "NumberOfDecreasesToday": 0,
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0
+        },
+        "TableSizeBytes": 0,
+        "ItemCount": 0,
+        "TableArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/list-beta",
+        "TableId": "«normalised»",
+        "BillingModeSummary": {
+          "BillingMode": "PAY_PER_REQUEST"
+        },
+        "DeletionProtectionEnabled": false
+      },
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "TableNames": [
+        "list-alpha",
+        "list-beta"
+      ],
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "TableNames": [
+        "list-alpha"
+      ],
+      "LastEvaluatedTableName": "list-alpha",
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  }
+]

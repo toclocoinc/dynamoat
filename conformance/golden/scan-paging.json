@@ -1,0 +1,81 @@
+[
+  {
+    "result": {
+      "TableDescription": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "id",
+            "AttributeType": "S"
+          }
+        ],
+        "TableName": "scan",
+        "KeySchema": [
+          {
+            "AttributeName": "id",
+            "KeyType": "HASH"
+          }
+        ],
+        "TableStatus": "CREATING",
+        "CreationDateTime": {},
+        "ProvisionedThroughput": {
+          "NumberOfDecreasesToday": 0,
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0
+        },
+        "TableSizeBytes": 0,
+        "ItemCount": 0,
+        "TableArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/scan",
+        "TableId": "«normalised»",
+        "BillingModeSummary": {
+          "BillingMode": "PAY_PER_REQUEST"
+        },
+        "DeletionProtectionEnabled": false
+      },
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "label": "scan-paging-items",
+    "result": {
+      "items": [
+        {
+          "id": "s1",
+          "value": 1
+        },
+        {
+          "id": "s2",
+          "value": 2
+        },
+        {
+          "id": "s3",
+          "value": 3
+        }
+      ],
+      "count": 3,
+      "$metadata": {}
+    }
+  }
+]

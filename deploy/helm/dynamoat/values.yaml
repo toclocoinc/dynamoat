@@ -1,0 +1,112 @@
+# Default values for dynamoat.
+
+replicaCount: 2
+
+image:
+  repository: ghcr.io/toclocoinc/dynamoat
+  # tag defaults to the Chart appVersion when empty.
+  tag: ""
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+# store selects the backend. "postgres" is the only real deployment; the
+# server reads the connection string from DYNAMOAT_PG (see postgres below).
+store: postgres
+
+serviceAccount:
+  # create specifies whether a ServiceAccount should be created.
+  create: true
+  # name is the ServiceAccount name. If not set and create is true, a name is
+  # generated from the fullname template.
+  name: ""
+  # annotations for the ServiceAccount, e.g. for Workload Identity:
+  #   iam.gke.io/gcp-service-account: dynamoat@PROJECT.iam.gserviceaccount.com
+  annotations: {}
+
+podAnnotations: {}
+podLabels: {}
+
+podSecurityContext: {}
+  # fsGroup: 65532
+
+securityContext:
+  runAsNonRoot: true
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop:
+      - ALL
+  seccompProfile:
+    type: RuntimeDefault
+
+service:
+  type: ClusterIP
+  port: 8000
+
+resources: {}
+  # limits:
+  #   cpu: 1000m
+  #   memory: 512Mi
+  # requests:
+  #   cpu: 250m
+  #   memory: 256Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 70
+
+topologySpreadConstraints:
+  maxSkew: 1
+  topologyKey: topology.kubernetes.io/zone
+  whenUnsatisfiable: ScheduleAnyway
+
+auth:
+  # mode is "sigv4" (default) or "none" for local development.
+  mode: sigv4
+  # existingSecret names a Secret the user created, with one file per access
+  # key (the file name is the access key ID, the file content is the secret).
+  # When set, it is mounted read-only and auth.keys is ignored.
+  existingSecret: ""
+  # keys renders a Secret from a map of access key ID -> secret when
+  # existingSecret is empty.
+  keys: {}
+  # region pins the region accepted in the SigV4 credential scope
+  # (DYNAMOAT_REGION). Empty accepts any region.
+  region: ""
+
+postgres:
+  # existingSecret names a Secret holding the Postgres connection string. When
+  # empty, connectionString is rendered into a Secret instead.
+  existingSecret: ""
+  # secretKey is the key within existingSecret (or the generated Secret) that
+  # holds the connection string (DYNAMOAT_PG).
+  secretKey: connection-string
+  # connectionString is the full Postgres connection string, e.g.
+  # postgres://user:password@host:5432/database?sslmode=require
+  connectionString: ""
+  # auth is "password" (default) or "azure-workload-identity" (DYNAMOAT_PG_AUTH).
+  # With azure-workload-identity the server fetches a short-lived Entra access
+  # token as each connection's password via the Azure Workload Identity
+  # federated token flow; the connection string has no password and the AZURE_*
+  # variables come from the AKS workload identity webhook.
+  auth: password
+  # maxConns / minConns bound the Postgres connection pool (DYNAMOAT_PG_MAX_CONNS
+  # / DYNAMOAT_PG_MIN_CONNS).
+  maxConns: 10
+  minConns: 0
+
+cloudSqlProxy:
+  # enabled adds the Cloud SQL Auth Proxy as a native sidecar (an initContainer
+  # with restartPolicy: Always). See values-gke-cloudsql.yaml.
+  enabled: false
+  image:
+    repository: gcr.io/cloud-sql-connectors/cloud-sql-proxy
+    # Pinned to a 2.x release; bump to the current 2.x tag as needed.
+    tag: "2.15.2"
+    pullPolicy: IfNotPresent
+  # instance is the Cloud SQL instance connection name (PROJECT:REGION:INSTANCE).
+  instance: ""

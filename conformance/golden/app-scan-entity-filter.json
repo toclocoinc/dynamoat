@@ -1,0 +1,227 @@
+[
+  {
+    "result": {
+      "TableDescription": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "comboKey",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "entity",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "id",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "subscription",
+            "AttributeType": "S"
+          }
+        ],
+        "TableName": "app-scan",
+        "KeySchema": [
+          {
+            "AttributeName": "id",
+            "KeyType": "HASH"
+          }
+        ],
+        "TableStatus": "CREATING",
+        "CreationDateTime": {},
+        "ProvisionedThroughput": {
+          "NumberOfDecreasesToday": 0,
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0
+        },
+        "TableSizeBytes": 0,
+        "ItemCount": 0,
+        "TableArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/app-scan",
+        "TableId": "«normalised»",
+        "BillingModeSummary": {
+          "BillingMode": "PAY_PER_REQUEST"
+        },
+        "GlobalSecondaryIndexes": [
+          {
+            "IndexName": "comboKey-index",
+            "KeySchema": [
+              {
+                "AttributeName": "comboKey",
+                "KeyType": "HASH"
+              }
+            ],
+            "Projection": {
+              "ProjectionType": "ALL"
+            },
+            "IndexStatus": "CREATING",
+            "ProvisionedThroughput": {
+              "NumberOfDecreasesToday": 0,
+              "ReadCapacityUnits": 0,
+              "WriteCapacityUnits": 0
+            },
+            "IndexSizeBytes": 0,
+            "ItemCount": 0,
+            "IndexArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/app-scan/index/comboKey-index"
+          },
+          {
+            "IndexName": "entity-comboKey-index",
+            "KeySchema": [
+              {
+                "AttributeName": "entity",
+                "KeyType": "HASH"
+              },
+              {
+                "AttributeName": "comboKey",
+                "KeyType": "RANGE"
+              }
+            ],
+            "Projection": {
+              "ProjectionType": "ALL"
+            },
+            "IndexStatus": "CREATING",
+            "ProvisionedThroughput": {
+              "NumberOfDecreasesToday": 0,
+              "ReadCapacityUnits": 0,
+              "WriteCapacityUnits": 0
+            },
+            "IndexSizeBytes": 0,
+            "ItemCount": 0,
+            "IndexArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/app-scan/index/entity-comboKey-index"
+          },
+          {
+            "IndexName": "entity-comboKey-name-index",
+            "KeySchema": [
+              {
+                "AttributeName": "entity",
+                "KeyType": "HASH"
+              },
+              {
+                "AttributeName": "comboKey",
+                "KeyType": "RANGE"
+              }
+            ],
+            "Projection": {
+              "ProjectionType": "INCLUDE",
+              "NonKeyAttributes": [
+                "name"
+              ]
+            },
+            "IndexStatus": "CREATING",
+            "ProvisionedThroughput": {
+              "NumberOfDecreasesToday": 0,
+              "ReadCapacityUnits": 0,
+              "WriteCapacityUnits": 0
+            },
+            "IndexSizeBytes": 0,
+            "ItemCount": 0,
+            "IndexArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/app-scan/index/entity-comboKey-name-index"
+          },
+          {
+            "IndexName": "subscription-entity-index",
+            "KeySchema": [
+              {
+                "AttributeName": "subscription",
+                "KeyType": "HASH"
+              },
+              {
+                "AttributeName": "entity",
+                "KeyType": "RANGE"
+              }
+            ],
+            "Projection": {
+              "ProjectionType": "ALL"
+            },
+            "IndexStatus": "CREATING",
+            "ProvisionedThroughput": {
+              "NumberOfDecreasesToday": 0,
+              "ReadCapacityUnits": 0,
+              "WriteCapacityUnits": 0
+            },
+            "IndexSizeBytes": 0,
+            "ItemCount": 0,
+            "IndexArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/app-scan/index/subscription-entity-index"
+          }
+        ],
+        "StreamSpecification": {
+          "StreamEnabled": true,
+          "StreamViewType": "OLD_IMAGE"
+        },
+        "LatestStreamLabel": "«normalised»",
+        "LatestStreamArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/app-scan/stream/«normalised»",
+        "DeletionProtectionEnabled": false
+      },
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "label": "app-scan-entity-filter-items",
+    "result": {
+      "items": [
+        {
+          "entity": "BACKLOG",
+          "id": "s1",
+          "name": "scan 1",
+          "comboKey": "SUB:sub-1|KBN:b1|ID:s1"
+        },
+        {
+          "entity": "BACKLOG",
+          "id": "s3",
+          "name": "scan 3",
+          "comboKey": "SUB:sub-1|KBN:b1|ID:s3"
+        },
+        {
+          "entity": "BACKLOG",
+          "id": "s5",
+          "name": "scan 5",
+          "comboKey": "SUB:sub-1|KBN:b1|ID:s5"
+        }
+      ],
+      "count": 3,
+      "$metadata": {}
+    }
+  }
+]

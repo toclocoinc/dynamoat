@@ -1,0 +1,14 @@
+dynamoat is deployed. It is ClusterIP-only and must stay inside the cluster.
+
+{{- if eq .Values.auth.mode "none" }}
+WARNING: auth.mode is "none" — every request is accepted without
+authentication. Do not run this in production.
+{{- end }}
+{{- if and (eq .Values.auth.mode "sigv4") (not .Values.auth.existingSecret) (empty .Values.auth.keys) }}
+WARNING: auth.mode is "sigv4" but no access keys are configured. Set
+auth.existingSecret or auth.keys, or the server will fail to start.
+{{- end }}
+{{- if and (not .Values.postgres.existingSecret) (not .Values.postgres.connectionString) }}
+WARNING: no Postgres connection is configured. Set postgres.existingSecret or
+postgres.connectionString.
+{{- end }}

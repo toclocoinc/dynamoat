@@ -1,0 +1,80 @@
+name: ci
+on:
+  push:
+  pull_request:
+
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/dynamoat
+            ~/go/pkg/mod
+          key: go-${{ hashFiles('scripts/go.sh', 'server/go.sum') }}
+      - run: scripts/test.sh
+
+  # Postgres integration tests on every supported major.
+  postgres:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        pg: [15, 16, 17, 18]
+    services:
+      postgres:
+        image: postgres:${{ matrix.pg }}
+        env:
+          POSTGRES_PASSWORD: ci
+          POSTGRES_DB: dynamoat_test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 2s
+          --health-timeout 5s --health-retries 30
+    env:
+      DYNAMOAT_TEST_PG: postgres://postgres:ci@localhost:5432/dynamoat_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/dynamoat
+            ~/go/pkg/mod
+          key: go-${{ hashFiles('scripts/go.sh', 'server/go.sum') }}
+      - run: scripts/go.sh -C server test -race -count=1 ./...
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: conformance/package-lock.json
+      - run: npm ci --no-audit --no-fund
+        working-directory: conformance
+      - run: npm test
+        working-directory: conformance
+        env:
+          CONFORMANCE_STORE: postgres
+          CONFORMANCE_PG: postgres://postgres:ci@localhost:5432/dynamoat_test
+
+  helm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: azure/setup-helm@v4
+        with:
+          version: v3.17.3
+      - name: Lint chart
+        run: helm lint deploy/helm/dynamoat
+      - name: Render default values
+        run: helm template dynamoat deploy/helm/dynamoat
+      - name: Render AKS Flexible Server profile
+        run: helm template dynamoat deploy/helm/dynamoat -f deploy/helm/dynamoat/values-aks-flexible.yaml
+      - name: Render GKE Cloud SQL profile
+        run: helm template dynamoat deploy/helm/dynamoat -f deploy/helm/dynamoat/values-gke-cloudsql.yaml
+
+  compose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker compose -f deploy/docker-compose.yml config

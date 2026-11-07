@@ -1,0 +1,94 @@
+[
+  {
+    "result": {
+      "TableDescription": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "id",
+            "AttributeType": "S"
+          }
+        ],
+        "TableName": "updateitem",
+        "KeySchema": [
+          {
+            "AttributeName": "id",
+            "KeyType": "HASH"
+          }
+        ],
+        "TableStatus": "CREATING",
+        "CreationDateTime": {},
+        "ProvisionedThroughput": {
+          "NumberOfDecreasesToday": 0,
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0
+        },
+        "TableSizeBytes": 0,
+        "ItemCount": 0,
+        "TableArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/updateitem",
+        "TableId": "«normalised»",
+        "BillingModeSummary": {
+          "BillingMode": "PAY_PER_REQUEST"
+        },
+        "DeletionProtectionEnabled": false
+      },
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "Attributes": {
+        "count": 1
+      },
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "Attributes": {
+        "count": 3,
+        "name": "new",
+        "id": "u1"
+      },
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "Attributes": {
+        "name": "newest",
+        "count": 3,
+        "id": "u1"
+      },
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  }
+]

@@ -1,0 +1,75 @@
+[
+  {
+    "result": {
+      "TableDescription": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "id",
+            "AttributeType": "S"
+          }
+        ],
+        "TableName": "roundtrip",
+        "KeySchema": [
+          {
+            "AttributeName": "id",
+            "KeyType": "HASH"
+          }
+        ],
+        "TableStatus": "CREATING",
+        "CreationDateTime": {},
+        "ProvisionedThroughput": {
+          "NumberOfDecreasesToday": 0,
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0
+        },
+        "TableSizeBytes": 0,
+        "ItemCount": 0,
+        "TableArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/roundtrip",
+        "TableId": "«normalised»",
+        "BillingModeSummary": {
+          "BillingMode": "PAY_PER_REQUEST"
+        },
+        "DeletionProtectionEnabled": false
+      },
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "Item": {
+        "ss": {
+          "SS": [
+            "a",
+            "b",
+            "c"
+          ]
+        },
+        "id": {
+          "S": "roundtrip-1"
+        },
+        "ns": {
+          "NS": [
+            "1",
+            "2.5",
+            "3"
+          ]
+        },
+        "big": {
+          "N": "12345678901234567890123456789012345678"
+        }
+      },
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  }
+]

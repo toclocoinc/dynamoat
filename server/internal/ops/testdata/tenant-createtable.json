@@ -1,0 +1,46 @@
+{
+  "TableName": "tenant-42",
+  "AttributeDefinitions": [
+    {"AttributeName": "id", "AttributeType": "S"},
+    {"AttributeName": "entity", "AttributeType": "S"},
+    {"AttributeName": "comboKey", "AttributeType": "S"},
+    {"AttributeName": "subscription", "AttributeType": "S"}
+  ],
+  "KeySchema": [
+    {"AttributeName": "id", "KeyType": "HASH"}
+  ],
+  "BillingMode": "PAY_PER_REQUEST",
+  "GlobalSecondaryIndexes": [
+    {
+      "IndexName": "entity-comboKey-index",
+      "KeySchema": [
+        {"AttributeName": "entity", "KeyType": "HASH"},
+        {"AttributeName": "comboKey", "KeyType": "RANGE"}
+      ],
+      "Projection": {"ProjectionType": "ALL"}
+    },
+    {
+      "IndexName": "entity-comboKey-name-index",
+      "KeySchema": [
+        {"AttributeName": "entity", "KeyType": "HASH"},
+        {"AttributeName": "comboKey", "KeyType": "RANGE"}
+      ],
+      "Projection": {"ProjectionType": "INCLUDE", "NonKeyAttributes": ["name"]}
+    },
+    {
+      "IndexName": "comboKey-index",
+      "KeySchema": [
+        {"AttributeName": "comboKey", "KeyType": "HASH"}
+      ],
+      "Projection": {"ProjectionType": "ALL"}
+    },
+    {
+      "IndexName": "subscription-index",
+      "KeySchema": [
+        {"AttributeName": "subscription", "KeyType": "HASH"}
+      ],
+      "Projection": {"ProjectionType": "KEYS_ONLY"}
+    }
+  ],
+  "StreamSpecification": {"StreamEnabled": true, "StreamViewType": "OLD_IMAGE"}
+}

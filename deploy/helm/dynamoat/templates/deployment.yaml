@@ -1,0 +1,109 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "dynamoat.fullname" . }}
+  labels:
+    {{- include "dynamoat.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "dynamoat.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "dynamoat.labels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      serviceAccountName: {{ include "dynamoat.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- if .Values.cloudSqlProxy.enabled }}
+      initContainers:
+        - name: cloud-sql-proxy
+          image: "{{ .Values.cloudSqlProxy.image.repository }}:{{ .Values.cloudSqlProxy.image.tag }}"
+          imagePullPolicy: {{ .Values.cloudSqlProxy.image.pullPolicy }}
+          restartPolicy: Always
+          args:
+            - "--auto-iam-authn"
+            - "--private-ip"
+            - "--port"
+            - "5432"
+            - {{ .Values.cloudSqlProxy.instance | quote }}
+      {{- end }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 8000
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            - name: DYNAMOAT_AUTH
+              value: {{ .Values.auth.mode | quote }}
+            - name: DYNAMOAT_STORE
+              value: {{ .Values.store | quote }}
+            {{- if eq .Values.auth.mode "sigv4" }}
+            - name: DYNAMOAT_KEYS
+              value: /etc/dynamoat/keys
+            {{- if .Values.auth.region }}
+            - name: DYNAMOAT_REGION
+              value: {{ .Values.auth.region | quote }}
+            {{- end }}
+            {{- end }}
+            {{- if or .Values.postgres.existingSecret .Values.postgres.connectionString }}
+            - name: DYNAMOAT_PG
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "dynamoat.postgresSecretName" . }}
+                  key: {{ .Values.postgres.secretKey | quote }}
+            - name: DYNAMOAT_PG_AUTH
+              value: {{ .Values.postgres.auth | quote }}
+            - name: DYNAMOAT_PG_MAX_CONNS
+              value: {{ .Values.postgres.maxConns | quote }}
+            - name: DYNAMOAT_PG_MIN_CONNS
+              value: {{ .Values.postgres.minConns | quote }}
+            {{- end }}
+          {{- if eq .Values.auth.mode "sigv4" }}
+          volumeMounts:
+            - name: keys
+              mountPath: /etc/dynamoat/keys
+              readOnly: true
+          {{- end }}
+      {{- if eq .Values.auth.mode "sigv4" }}
+      volumes:
+        - name: keys
+          secret:
+            secretName: {{ include "dynamoat.keysSecretName" . }}
+            defaultMode: 0444
+      {{- end }}
+      topologySpreadConstraints:
+        - maxSkew: {{ .Values.topologySpreadConstraints.maxSkew }}
+          topologyKey: {{ .Values.topologySpreadConstraints.topologyKey }}
+          whenUnsatisfiable: {{ .Values.topologySpreadConstraints.whenUnsatisfiable }}
+          labelSelector:
+            matchLabels:
+              {{- include "dynamoat.selectorLabels" . | nindent 14 }}

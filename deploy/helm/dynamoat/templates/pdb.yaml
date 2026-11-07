@@ -1,0 +1,13 @@
+{{- if gt (int .Values.replicaCount) 1 }}
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "dynamoat.fullname" . }}
+  labels:
+    {{- include "dynamoat.labels" . | nindent 4 }}
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      {{- include "dynamoat.selectorLabels" . | nindent 6 }}
+{{- end }}

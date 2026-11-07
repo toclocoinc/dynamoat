@@ -1,0 +1,177 @@
+[
+  {
+    "result": {
+      "TableDescription": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "id",
+            "AttributeType": "S"
+          }
+        ],
+        "TableName": "backup-src",
+        "KeySchema": [
+          {
+            "AttributeName": "id",
+            "KeyType": "HASH"
+          }
+        ],
+        "TableStatus": "CREATING",
+        "CreationDateTime": {},
+        "ProvisionedThroughput": {
+          "NumberOfDecreasesToday": 0,
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0
+        },
+        "TableSizeBytes": 0,
+        "ItemCount": 0,
+        "TableArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/backup-src",
+        "TableId": "«normalised»",
+        "BillingModeSummary": {
+          "BillingMode": "PAY_PER_REQUEST"
+        },
+        "DeletionProtectionEnabled": false
+      },
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "BackupDetails": {
+        "BackupArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/backup-src/backup/«normalised»",
+        "BackupName": "backup-case",
+        "BackupStatus": "CREATING",
+        "BackupType": "USER",
+        "BackupCreationDateTime": {},
+        "BackupSizeBytes": 0
+      },
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "BackupSummaries": [
+        {
+          "TableName": "backup-src",
+          "TableId": "«normalised»",
+          "TableArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/backup-src",
+          "BackupArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/backup-src/backup/«normalised»",
+          "BackupName": "backup-case",
+          "BackupCreationDateTime": {},
+          "BackupStatus": "AVAILABLE",
+          "BackupType": "USER",
+          "BackupSizeBytes": 0
+        }
+      ],
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "TableDescription": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "id",
+            "AttributeType": "S"
+          }
+        ],
+        "TableName": "backup-dst",
+        "KeySchema": [
+          {
+            "AttributeName": "id",
+            "KeyType": "HASH"
+          }
+        ],
+        "TableStatus": "CREATING",
+        "CreationDateTime": {},
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0
+        },
+        "TableSizeBytes": 0,
+        "ItemCount": 0,
+        "TableArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/backup-dst",
+        "TableId": "«normalised»",
+        "BillingModeSummary": {
+          "BillingMode": "PAY_PER_REQUEST"
+        },
+        "RestoreSummary": {
+          "RestoreDateTime": {},
+          "RestoreInProgress": true,
+          "SourceBackupArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/backup-src/backup/«normalised»",
+          "SourceTableArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/backup-src"
+        }
+      },
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "Item": {
+        "id": "b1",
+        "value": "one"
+      },
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "BackupDescription": {
+        "BackupDetails": {
+          "BackupArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/backup-src/backup/«normalised»",
+          "BackupName": "backup-case",
+          "BackupStatus": "DELETED",
+          "BackupType": "USER",
+          "BackupCreationDateTime": {},
+          "BackupSizeBytes": 0
+        },
+        "SourceTableDetails": {
+          "TableName": "backup-src",
+          "TableId": "«normalised»",
+          "KeySchema": [
+            {
+              "AttributeName": "id",
+              "KeyType": "HASH"
+            }
+          ],
+          "TableCreationDateTime": {},
+          "ProvisionedThroughput": {
+            "ReadCapacityUnits": 0,
+            "WriteCapacityUnits": 0
+          },
+          "TableArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/backup-src",
+          "TableSizeBytes": 0,
+          "ItemCount": 0,
+          "BillingMode": "PAY_PER_REQUEST"
+        },
+        "SourceTableFeatureDetails": {}
+      },
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  }
+]

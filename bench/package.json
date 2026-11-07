@@ -1,0 +1,24 @@
+{
+  "name": "dynamoat-bench",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Latency benchmark for dynamoat and DynamoDB, driven over the AWS SDK v3.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "dynamoat-bench": "./bin/dynamoat-bench.js"
+  },
+  "scripts": {
+    "test": "node --import tsx --test test/*.test.ts",
+    "smoke": "node smoke.mjs"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "3.1163.0",
+    "@aws-sdk/lib-dynamodb": "3.1163.0"
+  },
+  "devDependencies": {
+    "tsx": "4.23.15"
+  }
+}

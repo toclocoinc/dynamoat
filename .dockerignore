@@ -1,0 +1,8 @@
+.git
+.github
+.scratch-*
+**/node_modules
+server/dynamoat
+*.test
+coverage.out
+.DS_Store

@@ -1,0 +1,168 @@
+[
+  {
+    "result": {
+      "TableDescription": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "comboKey",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "entity",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "id",
+            "AttributeType": "S"
+          }
+        ],
+        "TableName": "query",
+        "KeySchema": [
+          {
+            "AttributeName": "id",
+            "KeyType": "HASH"
+          }
+        ],
+        "TableStatus": "CREATING",
+        "CreationDateTime": {},
+        "ProvisionedThroughput": {
+          "NumberOfDecreasesToday": 0,
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0
+        },
+        "TableSizeBytes": 0,
+        "ItemCount": 0,
+        "TableArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/query",
+        "TableId": "«normalised»",
+        "BillingModeSummary": {
+          "BillingMode": "PAY_PER_REQUEST"
+        },
+        "GlobalSecondaryIndexes": [
+          {
+            "IndexName": "entity-comboKey-index",
+            "KeySchema": [
+              {
+                "AttributeName": "entity",
+                "KeyType": "HASH"
+              },
+              {
+                "AttributeName": "comboKey",
+                "KeyType": "RANGE"
+              }
+            ],
+            "Projection": {
+              "ProjectionType": "ALL"
+            },
+            "IndexStatus": "CREATING",
+            "ProvisionedThroughput": {
+              "NumberOfDecreasesToday": 0,
+              "ReadCapacityUnits": 0,
+              "WriteCapacityUnits": 0
+            },
+            "IndexSizeBytes": 0,
+            "ItemCount": 0,
+            "IndexArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/query/index/entity-comboKey-index"
+          },
+          {
+            "IndexName": "entity-comboKey-name-index",
+            "KeySchema": [
+              {
+                "AttributeName": "entity",
+                "KeyType": "HASH"
+              },
+              {
+                "AttributeName": "comboKey",
+                "KeyType": "RANGE"
+              }
+            ],
+            "Projection": {
+              "ProjectionType": "INCLUDE",
+              "NonKeyAttributes": [
+                "name"
+              ]
+            },
+            "IndexStatus": "CREATING",
+            "ProvisionedThroughput": {
+              "NumberOfDecreasesToday": 0,
+              "ReadCapacityUnits": 0,
+              "WriteCapacityUnits": 0
+            },
+            "IndexSizeBytes": 0,
+            "ItemCount": 0,
+            "IndexArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/query/index/entity-comboKey-name-index"
+          }
+        ],
+        "StreamSpecification": {
+          "StreamEnabled": true,
+          "StreamViewType": "OLD_IMAGE"
+        },
+        "LatestStreamLabel": "«normalised»",
+        "LatestStreamArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/query/stream/«normalised»",
+        "DeletionProtectionEnabled": false
+      },
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "label": "Query pages",
+    "result": {
+      "Pages": [
+        [
+          {
+            "id": "q1",
+            "comboKey": "order-1",
+            "name": "one",
+            "entity": "acme"
+          }
+        ],
+        [
+          {
+            "id": "q2",
+            "comboKey": "order-2",
+            "name": "two",
+            "entity": "acme"
+          }
+        ],
+        [
+          {
+            "name": "three",
+            "id": "q3",
+            "comboKey": "order-3",
+            "entity": "acme"
+          }
+        ]
+      ],
+      "$metadata": {}
+    }
+  }
+]

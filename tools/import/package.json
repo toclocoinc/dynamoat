@@ -1,0 +1,25 @@
+{
+  "name": "dynamoat-import",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Copy DynamoDB tables into a dynamoat server (parallel Scan, resumable, verified).",
+  "type": "module",
+  "bin": {
+    "dynamoat-import": "bin/dynamoat-import.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --import tsx --test test/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "3.1163.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3"
+  }
+}

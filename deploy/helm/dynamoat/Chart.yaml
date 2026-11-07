@@ -1,0 +1,9 @@
+apiVersion: v2
+name: dynamoat
+description: dynamoat serves the DynamoDB API from PostgreSQL
+home: https://github.com/toclocoinc/dynamoat
+sources:
+  - https://github.com/toclocoinc/dynamoat
+type: application
+version: 0.1.0
+appVersion: "0.1.0"

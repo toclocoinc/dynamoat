@@ -1,0 +1,8 @@
+{
+  "name": "dynamoat",
+  "private": true,
+  "description": "DynamoDB API-compatible server. Go code lives in server/; this file only gives the build agents' gate an entry point.",
+  "scripts": {
+    "test": "sh scripts/test.sh"
+  }
+}

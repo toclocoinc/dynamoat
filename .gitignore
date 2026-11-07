@@ -1,0 +1,7 @@
+/server/dynamoat
+/bin/
+node_modules/
+.scratch-*/
+*.test
+coverage.out
+.DS_Store

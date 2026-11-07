@@ -1,0 +1,340 @@
+[
+  {
+    "result": {
+      "TableDescription": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "comboKey",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "entity",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "id",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "subscription",
+            "AttributeType": "S"
+          }
+        ],
+        "TableName": "app-tenant",
+        "KeySchema": [
+          {
+            "AttributeName": "id",
+            "KeyType": "HASH"
+          }
+        ],
+        "TableStatus": "CREATING",
+        "CreationDateTime": {},
+        "ProvisionedThroughput": {
+          "NumberOfDecreasesToday": 0,
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0
+        },
+        "TableSizeBytes": 0,
+        "ItemCount": 0,
+        "TableArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/app-tenant",
+        "TableId": "«normalised»",
+        "BillingModeSummary": {
+          "BillingMode": "PAY_PER_REQUEST"
+        },
+        "GlobalSecondaryIndexes": [
+          {
+            "IndexName": "comboKey-index",
+            "KeySchema": [
+              {
+                "AttributeName": "comboKey",
+                "KeyType": "HASH"
+              }
+            ],
+            "Projection": {
+              "ProjectionType": "ALL"
+            },
+            "IndexStatus": "CREATING",
+            "ProvisionedThroughput": {
+              "NumberOfDecreasesToday": 0,
+              "ReadCapacityUnits": 0,
+              "WriteCapacityUnits": 0
+            },
+            "IndexSizeBytes": 0,
+            "ItemCount": 0,
+            "IndexArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/app-tenant/index/comboKey-index"
+          },
+          {
+            "IndexName": "entity-comboKey-index",
+            "KeySchema": [
+              {
+                "AttributeName": "entity",
+                "KeyType": "HASH"
+              },
+              {
+                "AttributeName": "comboKey",
+                "KeyType": "RANGE"
+              }
+            ],
+            "Projection": {
+              "ProjectionType": "ALL"
+            },
+            "IndexStatus": "CREATING",
+            "ProvisionedThroughput": {
+              "NumberOfDecreasesToday": 0,
+              "ReadCapacityUnits": 0,
+              "WriteCapacityUnits": 0
+            },
+            "IndexSizeBytes": 0,
+            "ItemCount": 0,
+            "IndexArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/app-tenant/index/entity-comboKey-index"
+          },
+          {
+            "IndexName": "entity-comboKey-name-index",
+            "KeySchema": [
+              {
+                "AttributeName": "entity",
+                "KeyType": "HASH"
+              },
+              {
+                "AttributeName": "comboKey",
+                "KeyType": "RANGE"
+              }
+            ],
+            "Projection": {
+              "ProjectionType": "INCLUDE",
+              "NonKeyAttributes": [
+                "name"
+              ]
+            },
+            "IndexStatus": "CREATING",
+            "ProvisionedThroughput": {
+              "NumberOfDecreasesToday": 0,
+              "ReadCapacityUnits": 0,
+              "WriteCapacityUnits": 0
+            },
+            "IndexSizeBytes": 0,
+            "ItemCount": 0,
+            "IndexArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/app-tenant/index/entity-comboKey-name-index"
+          },
+          {
+            "IndexName": "subscription-entity-index",
+            "KeySchema": [
+              {
+                "AttributeName": "subscription",
+                "KeyType": "HASH"
+              },
+              {
+                "AttributeName": "entity",
+                "KeyType": "RANGE"
+              }
+            ],
+            "Projection": {
+              "ProjectionType": "ALL"
+            },
+            "IndexStatus": "CREATING",
+            "ProvisionedThroughput": {
+              "NumberOfDecreasesToday": 0,
+              "ReadCapacityUnits": 0,
+              "WriteCapacityUnits": 0
+            },
+            "IndexSizeBytes": 0,
+            "ItemCount": 0,
+            "IndexArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/app-tenant/index/subscription-entity-index"
+          }
+        ],
+        "StreamSpecification": {
+          "StreamEnabled": true,
+          "StreamViewType": "OLD_IMAGE"
+        },
+        "LatestStreamLabel": "«normalised»",
+        "LatestStreamArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/app-tenant/stream/«normalised»",
+        "DeletionProtectionEnabled": false
+      },
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "Table": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "comboKey",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "entity",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "id",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "subscription",
+            "AttributeType": "S"
+          }
+        ],
+        "TableName": "app-tenant",
+        "KeySchema": [
+          {
+            "AttributeName": "id",
+            "KeyType": "HASH"
+          }
+        ],
+        "TableStatus": "ACTIVE",
+        "CreationDateTime": {},
+        "ProvisionedThroughput": {
+          "NumberOfDecreasesToday": 0,
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0
+        },
+        "TableSizeBytes": 0,
+        "ItemCount": 0,
+        "TableArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/app-tenant",
+        "TableId": "«normalised»",
+        "BillingModeSummary": {
+          "BillingMode": "PAY_PER_REQUEST",
+          "LastUpdateToPayPerRequestDateTime": {}
+        },
+        "GlobalSecondaryIndexes": [
+          {
+            "IndexName": "comboKey-index",
+            "KeySchema": [
+              {
+                "AttributeName": "comboKey",
+                "KeyType": "HASH"
+              }
+            ],
+            "Projection": {
+              "ProjectionType": "ALL"
+            },
+            "IndexStatus": "ACTIVE",
+            "ProvisionedThroughput": {
+              "NumberOfDecreasesToday": 0,
+              "ReadCapacityUnits": 0,
+              "WriteCapacityUnits": 0
+            },
+            "IndexSizeBytes": 0,
+            "ItemCount": 0,
+            "IndexArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/app-tenant/index/comboKey-index",
+            "WarmThroughput": {
+              "ReadUnitsPerSecond": 12000,
+              "WriteUnitsPerSecond": 4000,
+              "Status": "ACTIVE"
+            }
+          },
+          {
+            "IndexName": "entity-comboKey-index",
+            "KeySchema": [
+              {
+                "AttributeName": "entity",
+                "KeyType": "HASH"
+              },
+              {
+                "AttributeName": "comboKey",
+                "KeyType": "RANGE"
+              }
+            ],
+            "Projection": {
+              "ProjectionType": "ALL"
+            },
+            "IndexStatus": "ACTIVE",
+            "ProvisionedThroughput": {
+              "NumberOfDecreasesToday": 0,
+              "ReadCapacityUnits": 0,
+              "WriteCapacityUnits": 0
+            },
+            "IndexSizeBytes": 0,
+            "ItemCount": 0,
+            "IndexArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/app-tenant/index/entity-comboKey-index",
+            "WarmThroughput": {
+              "ReadUnitsPerSecond": 12000,
+              "WriteUnitsPerSecond": 4000,
+              "Status": "ACTIVE"
+            }
+          },
+          {
+            "IndexName": "entity-comboKey-name-index",
+            "KeySchema": [
+              {
+                "AttributeName": "entity",
+                "KeyType": "HASH"
+              },
+              {
+                "AttributeName": "comboKey",
+                "KeyType": "RANGE"
+              }
+            ],
+            "Projection": {
+              "ProjectionType": "INCLUDE",
+              "NonKeyAttributes": [
+                "name"
+              ]
+            },
+            "IndexStatus": "ACTIVE",
+            "ProvisionedThroughput": {
+              "NumberOfDecreasesToday": 0,
+              "ReadCapacityUnits": 0,
+              "WriteCapacityUnits": 0
+            },
+            "IndexSizeBytes": 0,
+            "ItemCount": 0,
+            "IndexArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/app-tenant/index/entity-comboKey-name-index",
+            "WarmThroughput": {
+              "ReadUnitsPerSecond": 12000,
+              "WriteUnitsPerSecond": 4000,
+              "Status": "ACTIVE"
+            }
+          },
+          {
+            "IndexName": "subscription-entity-index",
+            "KeySchema": [
+              {
+                "AttributeName": "subscription",
+                "KeyType": "HASH"
+              },
+              {
+                "AttributeName": "entity",
+                "KeyType": "RANGE"
+              }
+            ],
+            "Projection": {
+              "ProjectionType": "ALL"
+            },
+            "IndexStatus": "ACTIVE",
+            "ProvisionedThroughput": {
+              "NumberOfDecreasesToday": 0,
+              "ReadCapacityUnits": 0,
+              "WriteCapacityUnits": 0
+            },
+            "IndexSizeBytes": 0,
+            "ItemCount": 0,
+            "IndexArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/app-tenant/index/subscription-entity-index",
+            "WarmThroughput": {
+              "ReadUnitsPerSecond": 12000,
+              "WriteUnitsPerSecond": 4000,
+              "Status": "ACTIVE"
+            }
+          }
+        ],
+        "StreamSpecification": {
+          "StreamEnabled": true,
+          "StreamViewType": "OLD_IMAGE"
+        },
+        "LatestStreamLabel": "«normalised»",
+        "LatestStreamArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/app-tenant/stream/«normalised»",
+        "DeletionProtectionEnabled": false,
+        "WarmThroughput": {
+          "ReadUnitsPerSecond": 12000,
+          "WriteUnitsPerSecond": 4000,
+          "Status": "ACTIVE"
+        }
+      },
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  }
+]

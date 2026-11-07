@@ -1,0 +1,31 @@
+# GKE + Cloud SQL profile.
+#
+# Fill in before installing:
+#   - cloudSqlProxy.instance: your Cloud SQL instance connection name
+#     (PROJECT:REGION:INSTANCE).
+#   - serviceAccount.annotations["iam.gke.io/gcp-service-account"]: the Google
+#     service account email the Kubernetes service account is bound to via
+#     Workload Identity.
+#   - postgres.connectionString: the database name and Cloud SQL IAM database
+#     user (see below).
+
+# The Cloud SQL Auth Proxy runs as a native sidecar (an initContainer with
+# restartPolicy: Always). With --auto-iam-authn it exchanges the pod's
+# Workload Identity for a short-lived IAM token, so the connection string has
+# no password. It listens on 127.0.0.1:5432 inside the pod.
+cloudSqlProxy:
+  enabled: true
+  instance: "PROJECT:REGION:INSTANCE" # TODO: replace with your instance connection name
+
+serviceAccount:
+  create: true
+  annotations:
+    # TODO: replace with your GSA email, e.g. dynamoat@PROJECT.iam.gserviceaccount.com
+    iam.gke.io/gcp-service-account: ""
+
+postgres:
+  # The Cloud SQL IAM database user for a service account is its email without
+  # ".gserviceaccount.com" (dynamoat@PROJECT.iam), and the "@" must be written
+  # %40 in the URL: postgres://dynamoat%40PROJECT.iam@127.0.0.1:5432/DATABASE.
+  # sslmode=disable: the proxy is a local hop and terminates TLS to Cloud SQL.
+  connectionString: "postgres://IAM_DB_USER@127.0.0.1:5432/DATABASE?sslmode=disable"

@@ -1,0 +1,186 @@
+[
+  {
+    "result": {
+      "TableDescription": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "id",
+            "AttributeType": "S"
+          }
+        ],
+        "TableName": "partiql",
+        "KeySchema": [
+          {
+            "AttributeName": "id",
+            "KeyType": "HASH"
+          }
+        ],
+        "TableStatus": "CREATING",
+        "CreationDateTime": {},
+        "ProvisionedThroughput": {
+          "NumberOfDecreasesToday": 0,
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0
+        },
+        "TableSizeBytes": 0,
+        "ItemCount": 0,
+        "TableArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/partiql",
+        "TableId": "«normalised»",
+        "BillingModeSummary": {
+          "BillingMode": "PAY_PER_REQUEST"
+        },
+        "DeletionProtectionEnabled": false
+      },
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "Items": [],
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "Items": [],
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "Items": [],
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "Items": [
+        {
+          "id": "a",
+          "n": 1,
+          "tag": "x"
+        }
+      ],
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "label": "partiql-filter-select",
+    "result": {
+      "items": [
+        {
+          "id": "a",
+          "n": 1,
+          "tag": "x"
+        },
+        {
+          "id": "b",
+          "n": 2,
+          "tag": "x"
+        }
+      ],
+      "count": 2,
+      "$metadata": {}
+    }
+  },
+  {
+    "label": "partiql-full-select",
+    "result": {
+      "items": [
+        {
+          "id": "a",
+          "n": 1,
+          "tag": "x"
+        },
+        {
+          "id": "b",
+          "n": 2,
+          "tag": "x"
+        },
+        {
+          "id": "c",
+          "n": 3,
+          "tag": "y"
+        }
+      ],
+      "count": 3,
+      "$metadata": {}
+    }
+  },
+  {
+    "result": {
+      "Items": [],
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "Items": [
+        {
+          "id": "a",
+          "n": 5,
+          "tag": "x"
+        }
+      ],
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "Responses": [
+        {
+          "TableName": "partiql",
+          "Item": {
+            "id": "b",
+            "n": 2,
+            "tag": "x"
+          }
+        },
+        {
+          "TableName": "partiql"
+        }
+      ],
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "Responses": [],
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "Items": [],
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "Items": [],
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "error": {
+      "name": "ResourceNotFoundException",
+      "message": "Requested resource not found",
+      "$metadata": {
+        "httpStatusCode": 400
+      }
+    }
+  }
+]

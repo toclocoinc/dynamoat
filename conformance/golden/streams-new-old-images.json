@@ -1,0 +1,106 @@
+[
+  {
+    "result": {
+      "TableDescription": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "id",
+            "AttributeType": "S"
+          }
+        ],
+        "TableName": "streams",
+        "KeySchema": [
+          {
+            "AttributeName": "id",
+            "KeyType": "HASH"
+          }
+        ],
+        "TableStatus": "CREATING",
+        "CreationDateTime": {},
+        "ProvisionedThroughput": {
+          "NumberOfDecreasesToday": 0,
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0
+        },
+        "TableSizeBytes": 0,
+        "ItemCount": 0,
+        "TableArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/streams",
+        "TableId": "«normalised»",
+        "BillingModeSummary": {
+          "BillingMode": "PAY_PER_REQUEST"
+        },
+        "StreamSpecification": {
+          "StreamEnabled": true,
+          "StreamViewType": "NEW_AND_OLD_IMAGES"
+        },
+        "LatestStreamLabel": "«normalised»",
+        "LatestStreamArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/streams/stream/«normalised»",
+        "DeletionProtectionEnabled": false
+      },
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "Streams": [
+        {
+          "StreamArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/streams/stream/«normalised»",
+          "TableName": "streams",
+          "StreamLabel": "«normalised»"
+        }
+      ],
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "label": "DescribeStream",
+    "result": {
+      "StreamStatus": "ENABLED",
+      "StreamViewType": "NEW_AND_OLD_IMAGES",
+      "TableName": "streams",
+      "KeySchema": [
+        {
+          "AttributeName": "id",
+          "KeyType": "HASH"
+        }
+      ],
+      "$metadata": {}
+    }
+  },
+  {
+    "label": "stream-records",
+    "result": {
+      "Records": [
+        "INSERT",
+        "MODIFY",
+        "REMOVE"
+      ],
+      "$metadata": {}
+    }
+  }
+]

@@ -1,0 +1,13 @@
+{
+ "body": "{\"TableName\":\"t_backlog\",\"Key\":{\"id\":{\"S\":\"c1\"}}}",
+ "headers": {
+  "host": "dynamoat.local:8000",
+  "content-type": "application/x-amz-json-1.0",
+  "x-amz-target": "DynamoDB_20120810.GetItem",
+  "amz-sdk-invocation-id": "6f1c2b9e-1111-4222-8333-944455556666",
+  "x-amz-date": "20261105T120000Z",
+  "x-amz-content-sha256": "7c6ba1f8f077e7ffc99f99a1da67834c3f0c79a331da3b9afa2eed69d5b0ff87",
+  "authorization": "AWS4-HMAC-SHA256 Credential=AKIDDYNAMOATTEST/20261105/eu-west-2/dynamodb/aws4_request, SignedHeaders=amz-sdk-invocation-id;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target, Signature=bb465bc2db819d94d1a78ef78c4cfe88bd9a6bc73190baa2421988368c6f105b"
+ },
+ "note": "Signed by @smithy/signature-v4 5.7.3 (the AWS SDK v3 signer) at 2026-11-05T12:00:00Z. Secret for AKIDDYNAMOATTEST: dynamoat/test/secret/key+0123456789abcd. Region eu-west-2, service dynamodb, method POST, path /."
+}

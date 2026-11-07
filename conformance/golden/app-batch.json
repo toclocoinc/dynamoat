@@ -1,0 +1,331 @@
+[
+  {
+    "result": {
+      "TableDescription": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "id",
+            "AttributeType": "S"
+          }
+        ],
+        "TableName": "app-batch",
+        "KeySchema": [
+          {
+            "AttributeName": "id",
+            "KeyType": "HASH"
+          }
+        ],
+        "TableStatus": "CREATING",
+        "CreationDateTime": {},
+        "ProvisionedThroughput": {
+          "NumberOfDecreasesToday": 0,
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0
+        },
+        "TableSizeBytes": 0,
+        "ItemCount": 0,
+        "TableArn": "arn:aws:dynamodb:«normalised»:«normalised»:table/app-batch",
+        "TableId": "«normalised»",
+        "BillingModeSummary": {
+          "BillingMode": "PAY_PER_REQUEST"
+        },
+        "DeletionProtectionEnabled": false
+      },
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "UnprocessedItems": {},
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "UnprocessedItems": {},
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "UnprocessedItems": {},
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "Responses": {
+        "app-batch": [
+          {
+            "id": "item1",
+            "value": "value-item1"
+          },
+          {
+            "id": "item10",
+            "value": "value-item10"
+          },
+          {
+            "id": "item11",
+            "value": "value-item11"
+          },
+          {
+            "id": "item12",
+            "value": "value-item12"
+          },
+          {
+            "id": "item13",
+            "value": "value-item13"
+          },
+          {
+            "id": "item14",
+            "value": "value-item14"
+          },
+          {
+            "id": "item15",
+            "value": "value-item15"
+          },
+          {
+            "id": "item16",
+            "value": "value-item16"
+          },
+          {
+            "id": "item17",
+            "value": "value-item17"
+          },
+          {
+            "id": "item18",
+            "value": "value-item18"
+          },
+          {
+            "id": "item19",
+            "value": "value-item19"
+          },
+          {
+            "id": "item2",
+            "value": "value-item2"
+          },
+          {
+            "id": "item20",
+            "value": "value-item20"
+          },
+          {
+            "id": "item21",
+            "value": "value-item21"
+          },
+          {
+            "id": "item22",
+            "value": "value-item22"
+          },
+          {
+            "id": "item23",
+            "value": "value-item23"
+          },
+          {
+            "id": "item24",
+            "value": "value-item24"
+          },
+          {
+            "id": "item25",
+            "value": "value-item25"
+          },
+          {
+            "id": "item26",
+            "value": "value-item26"
+          },
+          {
+            "id": "item27",
+            "value": "value-item27"
+          },
+          {
+            "id": "item28",
+            "value": "value-item28"
+          },
+          {
+            "id": "item29",
+            "value": "value-item29"
+          },
+          {
+            "id": "item3",
+            "value": "value-item3"
+          },
+          {
+            "id": "item30",
+            "value": "value-item30"
+          },
+          {
+            "id": "item31",
+            "value": "value-item31"
+          },
+          {
+            "id": "item32",
+            "value": "value-item32"
+          },
+          {
+            "id": "item33",
+            "value": "value-item33"
+          },
+          {
+            "id": "item34",
+            "value": "value-item34"
+          },
+          {
+            "id": "item35",
+            "value": "value-item35"
+          },
+          {
+            "id": "item36",
+            "value": "value-item36"
+          },
+          {
+            "id": "item37",
+            "value": "value-item37"
+          },
+          {
+            "id": "item38",
+            "value": "value-item38"
+          },
+          {
+            "id": "item39",
+            "value": "value-item39"
+          },
+          {
+            "id": "item4",
+            "value": "value-item4"
+          },
+          {
+            "id": "item40",
+            "value": "value-item40"
+          },
+          {
+            "id": "item41",
+            "value": "value-item41"
+          },
+          {
+            "id": "item42",
+            "value": "value-item42"
+          },
+          {
+            "id": "item43",
+            "value": "value-item43"
+          },
+          {
+            "id": "item44",
+            "value": "value-item44"
+          },
+          {
+            "id": "item45",
+            "value": "value-item45"
+          },
+          {
+            "id": "item46",
+            "value": "value-item46"
+          },
+          {
+            "id": "item47",
+            "value": "value-item47"
+          },
+          {
+            "id": "item48",
+            "value": "value-item48"
+          },
+          {
+            "id": "item49",
+            "value": "value-item49"
+          },
+          {
+            "id": "item5",
+            "value": "value-item5"
+          },
+          {
+            "id": "item50",
+            "value": "value-item50"
+          },
+          {
+            "id": "item51",
+            "value": "value-item51"
+          },
+          {
+            "id": "item52",
+            "value": "value-item52"
+          },
+          {
+            "id": "item53",
+            "value": "value-item53"
+          },
+          {
+            "id": "item54",
+            "value": "value-item54"
+          },
+          {
+            "id": "item55",
+            "value": "value-item55"
+          },
+          {
+            "id": "item56",
+            "value": "value-item56"
+          },
+          {
+            "id": "item57",
+            "value": "value-item57"
+          },
+          {
+            "id": "item58",
+            "value": "value-item58"
+          },
+          {
+            "id": "item59",
+            "value": "value-item59"
+          },
+          {
+            "id": "item6",
+            "value": "value-item6"
+          },
+          {
+            "id": "item60",
+            "value": "value-item60"
+          },
+          {
+            "id": "item7",
+            "value": "value-item7"
+          },
+          {
+            "id": "item8",
+            "value": "value-item8"
+          },
+          {
+            "id": "item9",
+            "value": "value-item9"
+          }
+        ]
+      },
+      "UnprocessedKeys": {},
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "UnprocessedItems": {},
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  },
+  {
+    "result": {
+      "UnprocessedItems": {},
+      "$metadata": {
+        "httpStatusCode": 200
+      }
+    }
+  }
+]

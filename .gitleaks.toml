@@ -1,0 +1,38 @@
+# gitleaks configuration for dynamoat.
+#
+# Extends the built-in rules and allowlists only the documented test fixtures
+# and local-development credentials that appear in the source tree. None of
+# these are real secrets: they show up only in unit tests, documentation
+# examples and the local docker-compose file. Every entry pins both the file
+# and the exact fixture value so a real secret is still reported.
+
+[extend]
+useDefault = true
+
+# The dummy access key the SigV4 unit tests sign with. It is a made-up string,
+# not a real credential.
+[[allowlists]]
+description = "dummy access key used by the SigV4 unit tests"
+condition = "AND"
+paths = ['''server/internal/sigv4/sigv4_test\.go''']
+stopwords = ['''dynamoat/test/secret/key+0123456789abcd''']
+
+# AWS's documented example access key pair, shown in the Helm chart README to
+# illustrate auth.keys. These are the well-known placeholder keys AWS uses in
+# its own documentation.
+[[allowlists]]
+description = "AWS documented example access key pair in the Helm chart docs"
+condition = "AND"
+paths = ['''deploy/helm/dynamoat/README\.md''']
+stopwords = [
+  '''AKIAIOSFODNN7EXAMPLE''',
+  '''wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY''',
+]
+
+# The local-development Postgres password in deploy/docker-compose.yml. It is
+# only ever used by the compose file on a developer's machine.
+[[allowlists]]
+description = "local-development Postgres password in deploy/docker-compose.yml"
+condition = "AND"
+paths = ['''deploy/docker-compose\.yml''']
+stopwords = ['''dynamoat''']
