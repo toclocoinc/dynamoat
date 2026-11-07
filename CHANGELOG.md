@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-11-07
+
+### Fixed
+
+- The Helm chart now installs without setting `image.tag`. Release images are
+  tagged with the version both with and without the leading `v` (`v0.1.1` and
+  `0.1.1`); 0.1.0 was only tagged `v0.1.0`, which the chart's default did not
+  match. If you install the 0.1.0 chart, set `image.tag=v0.1.0`.
+- The Helm README no longer points at a chart registry that does not exist; it
+  describes using the chart as a subchart from a copy of the repository.
+
 ## [0.1.0] - 2026-11-07
 
 First public release. dynamoat is pre-1.0: expect changes, and check

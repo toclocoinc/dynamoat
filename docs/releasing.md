@@ -8,13 +8,15 @@ A release is triggered by pushing a tag named `vX.Y.Z` to the repository. The
 1. Update `CHANGELOG.md` with a `## vX.Y.Z` section describing the changes for
    this release. The workflow uses that section as the GitHub release body; if
    there is no matching section it falls back to a link to the changelog.
-2. Make sure `scripts/test.sh` passes locally:
+2. Set `version` and `appVersion` in `deploy/helm/dynamoat/Chart.yaml` to
+   `X.Y.Z` (no `v`). The chart pulls the image tagged with its `appVersion`.
+3. Make sure `scripts/test.sh` passes locally:
 
    ```
    scripts/test.sh
    ```
 
-3. Commit the changelog (and any other changes), then tag and push:
+4. Commit the changelog (and any other changes), then tag and push:
 
    ```
    git tag vX.Y.Z
@@ -37,8 +39,9 @@ unless it passes. The release job then:
 - Creates the GitHub release for the tag, attaching the archives and
   `SHA256SUMS`, with the body taken from the tag's section of `CHANGELOG.md`.
 - Builds and pushes a multi-arch (`linux/amd64`, `linux/arm64`) image to
-  `ghcr.io/<owner>/dynamoat`, tagged `<version>` (and `latest` for
-  non-prerelease tags).
+  `ghcr.io/<owner>/dynamoat`, tagged with the version both with and without
+  the leading `v` (`v0.1.1` and `0.1.1`), and `latest` for non-prerelease
+  tags.
 
 ## Verifying a release
 

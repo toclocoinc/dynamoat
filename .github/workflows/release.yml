@@ -48,7 +48,9 @@ jobs:
           esac
 
           image="ghcr.io/${{ github.repository_owner }}/dynamoat"
-          tags="$image:$version"
+          # Tag the image with the version both with and without the "v", so
+          # the Helm chart's appVersion (no "v") names an image that exists.
+          tags="$(printf '%s\n%s' "$image:$version" "$image:${version#v}")"
           if [ "$prerelease" = false ]; then
             tags="$(printf '%s\n%s' "$tags" "$image:latest")"
           fi

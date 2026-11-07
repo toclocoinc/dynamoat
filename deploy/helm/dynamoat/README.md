@@ -122,16 +122,19 @@ helm install dynamoat ./deploy/helm/dynamoat -f ./deploy/helm/dynamoat/values-ak
 
 ## Using as a subchart
 
-Add dynamoat to the parent chart's `Chart.yaml` and set its values under the
-`dynamoat` prefix:
+The chart is not published to a chart registry yet. Copy `deploy/helm/dynamoat`
+from the release you want into the parent chart (here `deps/dynamoat`), add it
+to the parent chart's `Chart.yaml`, and run `helm dependency update`:
 
 ```yaml
 dependencies:
   - name: dynamoat
-    version: 0.1.0
-    repository: "oci://ghcr.io/toclocoinc/dynamoat-helm"
+    version: 0.1.1
+    repository: "file://deps/dynamoat"
     condition: dynamoat.enabled
 ```
+
+Then set its values under the `dynamoat` prefix:
 
 ```yaml
 dynamoat:
